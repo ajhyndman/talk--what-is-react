@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+      /* Copied from remark sample slideshow: */
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* custom */
+      .react-logo img {
+        width: 75%;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle, inverse
+
+.react-logo[![React](http://80limit.com/assets/reactjs-dcf8afa4dd6cfbeefd329d04dbe0c2e7a157d6da8cab0c29240cdb9c7b4a8fd8.svg)]
+
+---
+
+# What I'm not going to talk about
+
+* ### How does React work?
+* ### Performance
+* ### Technique
+* ### Tooling
+
+---
+
+# What I am going to talk about
+
+* ### Websites vs Web applications
+* ### Notifications (live coding?)
+* ### View as a function of state
+* ### Other benefits
+* ### Further reading
+
+---
+
+class: center, middle, inverse
+
+# Websites vs Web applications
+
+---
+
+# Websites vs Web applications
+
+This is a false dichotomy, but I want to make the point that
+once upon a time the internet was built for serving pages.
+
+e.g. Wikipedia, News sites
+
+Now we expect a very rich, interactive experience from our web browsing.
+
+e.g. Facebook, Google Maps
+
+---
+
+# Websites vs Web applications
+
+As we shift from websites to web applications, application logic becomes 
+more complex and harder to maintain.
+
+This is the problem React is trying to solve.
+
+---
+
+class: center middle inverse
+
+# Notifications
+(Let's look at some code!)
+
+---
+
+# Notifications (jQuery)
+
+
+html:
+
+```html
+<div class="card">
+  <!-- Badge -->
+
+  <!-- Inbox -->
+  <div class="card-block">
+    <div class="list-group">
+      <button class="message list-group-item list-group-item-action justify-content-between">
+        Cras justo odio
+        <span class="badge badge-default badge-pill">Unread</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mark as read! -->
+</div>
+```
+
+js:
+
+```js
+$('.message').click(function () {
+  $(this).find('.badge').hide();
+});
+```
+
+---
+
+class: center
+
+# Notifications (jQuery)
+
+### [Ready to build](http://codepen.io/Eleint/pen/YNOaEz?editors=1010)
+### [Complete](http://codepen.io/Eleint/pen/YNOvbg?editors=1010)
+
+---
+
+# Notifications (React)
+
+```js
+class App extends React.Component {
+  render() {
+    return (
+      <div className="card">
+        {/* Badge */}
+
+        {/* Inbox */}
+        <div className="card-block">
+          <div className="list-group">
+            <button className="message list-group-item list-group-item-action justify-content-between">
+              Cras justo odio
+              <span className="badge badge-default badge-pill">Unread</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Mark as read! */}
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+)
+```
+
+---
+
+class: center
+
+# Notifications (React)
+
+### [Ready to build](http://codepen.io/Eleint/pen/VPGBPJ?editors=1010)
+### [Complete](http://codepen.io/Eleint/pen/OWowOR?editors=1010)
+
+---
+
+class: center, middle, inverse
+
+# View as a function of state
+
+---
+
+# View as a function of state
+
+Traditional web programming expects programmers to implement transitions.
+
+Declarative programming (i.e. React) expects programmers to describe the view 
+for all possible states.  This is called describing the view **as a function of 
+state**.
+
+---
+
+class: center, middle, inverse
+
+# Other benefits
+
+---
+
+# Other benefits
+
+* ### "Decoupling" of modules
+* ### Module "cohesion"
+* ### Abstraction of render target
+  * ### React Native!
+
+---
+
+# Further reading
+
+## Inspirations
+
+* ### [React.js Introduction For People Who Know Just Enough jQuery To Get By](http://reactfordesigners.com/labs/reactjs-introduction-for-people-who-know-just-enough-jquery-to-get-by/)
+* ### [Pete Hunt: Rethinking Best Practices](https://www.youtube.com/watch?v=DgVS-zXgMTk)
+
+---
+
+class: center middle inverse
+
+# Fin
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
